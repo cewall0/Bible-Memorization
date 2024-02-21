@@ -14,14 +14,13 @@ struct MainView: View {
     @State private var verseState: Verse?
     @State private var wrdList: [Word] = [Word(id: 1, word: "wrdLst")]
     @State private var buttonID: Int = 0
+    @State private var toDelete: Int = 0
     
     enum catchErrors: Error {
         case invalidURL
         case invalidResponse
         case invalidData
     }
-    
-    let numVerses = 5
     
     var body: some View {
         
@@ -35,11 +34,16 @@ struct MainView: View {
                 .font(.headline)
             Text("")
             
-            Text(main.verseText)
+//            Text(main.verseText)
+//                .multilineTextAlignment(.leading)
+//                .font(.headline)
+//                .padding()
+//            Text("")
+            
+            Text(verseState?.text ?? "verseState empty")
                 .multilineTextAlignment(.leading)
                 .font(.headline)
                 .padding()
-            
             Text("")
             if main.displayWords == true {
                 Text(String(main.wordList[18].id))
@@ -87,7 +91,7 @@ struct MainView: View {
             do {
                 
             verseState = try await main.getVerse()
-            main.verseText = verseState?.text ?? "default value verseZero"
+//            main.verseText = verseState?.text ?? "default value verseZero"
             wrdList = await main.getWords()
                 
             } catch catchErrors.invalidURL {

@@ -13,7 +13,7 @@ import Observation
 final class Main {
     
     var verse: Verse?
-    var verseText: String = "Blank"
+    var verseText: String = "blank"
     var word: String = ""
     var text: String = ""
     var fixedVerse: String = ""
@@ -27,6 +27,7 @@ final class Main {
     var isInvisible = false
     var vrs: String = ""
     let numVerses = 2
+    var toDelete = 0
     
     enum catchErrors: Error {
         case invalidURL
