@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		0B86F4FD2B82964A0082E6F2 /* Bible_MemorizationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F4FC2B82964A0082E6F2 /* Bible_MemorizationApp.swift */; };
-		0B86F4FF2B82964A0082E6F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F4FE2B82964A0082E6F2 /* ContentView.swift */; };
+		0B86F4FF2B82964A0082E6F2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F4FE2B82964A0082E6F2 /* MainView.swift */; };
 		0B86F5012B82964D0082E6F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B86F5002B82964D0082E6F2 /* Assets.xcassets */; };
 		0B86F5042B82964D0082E6F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B86F5032B82964D0082E6F2 /* Preview Assets.xcassets */; };
+		0B86F50D2B8501510082E6F2 /* Verse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F50C2B8501510082E6F2 /* Verse.swift */; };
+		0B86F5112B8501E20082E6F2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F5102B8501E20082E6F2 /* MainViewModel.swift */; };
+		0B86F5132B8506060082E6F2 /* HeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F5122B8506060082E6F2 /* HeadingView.swift */; };
+		0B86F5152B85C09C0082E6F2 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F5142B85C09C0082E6F2 /* Word.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B86F4F92B82964A0082E6F2 /* Bible Memorization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bible Memorization.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B86F4FC2B82964A0082E6F2 /* Bible_MemorizationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bible_MemorizationApp.swift; sourceTree = "<group>"; };
-		0B86F4FE2B82964A0082E6F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0B86F4FE2B82964A0082E6F2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0B86F5002B82964D0082E6F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B86F5032B82964D0082E6F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0B86F50C2B8501510082E6F2 /* Verse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verse.swift; sourceTree = "<group>"; };
+		0B86F5102B8501E20082E6F2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0B86F5122B8506060082E6F2 /* HeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingView.swift; sourceTree = "<group>"; };
+		0B86F5142B85C09C0082E6F2 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				0B86F4FC2B82964A0082E6F2 /* Bible_MemorizationApp.swift */,
-				0B86F4FE2B82964A0082E6F2 /* ContentView.swift */,
+				0B86F50A2B8500E20082E6F2 /* Models */,
+				0B86F50F2B8501930082E6F2 /* ViewModels */,
+				0B86F50B2B8500F20082E6F2 /* Views */,
 				0B86F5002B82964D0082E6F2 /* Assets.xcassets */,
 				0B86F5022B82964D0082E6F2 /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				0B86F5032B82964D0082E6F2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0B86F50A2B8500E20082E6F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B86F50C2B8501510082E6F2 /* Verse.swift */,
+				0B86F5142B85C09C0082E6F2 /* Word.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0B86F50B2B8500F20082E6F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B86F4FE2B82964A0082E6F2 /* MainView.swift */,
+				0B86F5122B8506060082E6F2 /* HeadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B86F50F2B8501930082E6F2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0B86F5102B8501E20082E6F2 /* MainViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B86F4FF2B82964A0082E6F2 /* ContentView.swift in Sources */,
+				0B86F50D2B8501510082E6F2 /* Verse.swift in Sources */,
+				0B86F5132B8506060082E6F2 /* HeadingView.swift in Sources */,
+				0B86F4FF2B82964A0082E6F2 /* MainView.swift in Sources */,
 				0B86F4FD2B82964A0082E6F2 /* Bible_MemorizationApp.swift in Sources */,
+				0B86F5112B8501E20082E6F2 /* MainViewModel.swift in Sources */,
+				0B86F5152B85C09C0082E6F2 /* Word.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

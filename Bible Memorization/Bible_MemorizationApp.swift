@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Observation
 
 @main
 struct Bible_MemorizationApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
