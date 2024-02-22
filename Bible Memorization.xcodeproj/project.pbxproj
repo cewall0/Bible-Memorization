@@ -15,6 +15,7 @@
 		0B86F5112B8501E20082E6F2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F5102B8501E20082E6F2 /* MainViewModel.swift */; };
 		0B86F5132B8506060082E6F2 /* HeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F5122B8506060082E6F2 /* HeadingView.swift */; };
 		0B86F5152B85C09C0082E6F2 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F5142B85C09C0082E6F2 /* Word.swift */; };
+		0B86F5172B870C690082E6F2 /* WordButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86F5162B870C690082E6F2 /* WordButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		0B86F5102B8501E20082E6F2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		0B86F5122B8506060082E6F2 /* HeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingView.swift; sourceTree = "<group>"; };
 		0B86F5142B85C09C0082E6F2 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		0B86F5162B870C690082E6F2 /* WordButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				0B86F4FE2B82964A0082E6F2 /* MainView.swift */,
 				0B86F5122B8506060082E6F2 /* HeadingView.swift */,
+				0B86F5162B870C690082E6F2 /* WordButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B86F50D2B8501510082E6F2 /* Verse.swift in Sources */,
+				0B86F5172B870C690082E6F2 /* WordButtonStyle.swift in Sources */,
 				0B86F5132B8506060082E6F2 /* HeadingView.swift in Sources */,
 				0B86F4FF2B82964A0082E6F2 /* MainView.swift in Sources */,
 				0B86F4FD2B82964A0082E6F2 /* Bible_MemorizationApp.swift in Sources */,
