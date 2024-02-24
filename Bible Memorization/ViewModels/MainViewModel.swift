@@ -12,10 +12,9 @@ import Observation
 @Observable
 final class Main {
     
-    //    var verse: Verse?
     var verseText: String = "blank"
-    var word: String = ""
-    var text: String = ""
+//    var word: Word = Word()
+//    var text: String = ""
     var fixedVerse: String = ""
     var book: String = "John"
     var chapter: String = "3"
@@ -29,6 +28,7 @@ final class Main {
     let numVerses = 5
     var toDelete = 0
     var wordID = 0
+    
     
     enum catchErrors: Error {
         case invalidURL
@@ -78,14 +78,14 @@ final class Main {
         
         wordList.removeAll()
         
-        for _ in 1...numVerses {
+        for vrsIndex in 1...numVerses {
             for wrdIndex in 0..<words.count {
-                wordList.append(Word(id: 1, word: words[wrdIndex], xPosition: CGFloat.random(in: 50..<330), yPosition: CGFloat.random(in: 40..<300), rotation: Double.random(in: -40.0...40.0), isInvisible: false))
+                wordList.append(Word(id: 1, word: words[wrdIndex], xPosition: CGFloat.random(in: 50..<330), yPosition: CGFloat.random(in: 40..<300), rotation: Double.random(in: -40.0...40.0), isInvisible: false, color: vrsIndex))
             }
         }
         
         for index in 0..<(wordList.count) {
-            wordList[index] = Word(id: index, word: wordList[index].word, xPosition: wordList[index].xPosition, yPosition: wordList[index].yPosition, rotation: wordList[index].rotation)
+            wordList[index] = Word(id: index, word: wordList[index].word, xPosition: wordList[index].xPosition, yPosition: wordList[index].yPosition, rotation: wordList[index].rotation, color: wordList[index].color)
         }
         
         wordCounter = wordList.count - 1
@@ -96,4 +96,22 @@ final class Main {
         
     } // end func getWords()
     
-}
+    func myColor(intColor: Int) -> Color {
+        let color = intColor
+        switch color {
+            case 1:
+                return .cyan
+            case 2:
+                return .blue
+            case 3:
+                return .red
+            case 4:
+                return .green
+            case 5:
+                return .indigo
+            default:
+                return .white
+            }
+        }
+    }
+

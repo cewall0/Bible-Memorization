@@ -61,7 +61,7 @@ struct MainView: View {
                                 .stroke(Color.black, lineWidth: 3)).opacity(main.wordList[word.id].isInvisible ? 0.0 : 1.0)
                             .rotationEffect(Angle(degrees: main.wordList[word.id].rotation))
                             .position(x: main.wordList[word.id].xPosition, y: main.wordList[word.id].yPosition)
-                            .buttonStyle(.borderedProminent)
+                            .buttonStyle(.borderedProminent).tint(main.myColor(intColor: main.wordList[word.id].color))
 //                            .frame(height: main.wordList[word.id].isInvisible ? nil : 0)
                             .disabled(main.wordList[word.id].isInvisible)
                         } // end ForEach

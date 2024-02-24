@@ -15,5 +15,5 @@ struct Word: Identifiable, Codable, Hashable {
     var yPosition: CGFloat = CGFloat.random(in: 40..<300)
     var rotation: Double = Double.random(in: -40.0...40.0)
     var isInvisible = false
-
+    var color: Int = 0
 }
