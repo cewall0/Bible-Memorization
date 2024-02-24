@@ -12,7 +12,7 @@ import Observation
 @Observable
 final class Main {
     
-//    var verse: Verse?
+    //    var verse: Verse?
     var verseText: String = "blank"
     var word: String = ""
     var text: String = ""
@@ -36,7 +36,7 @@ final class Main {
         case invalidData
     }
     
-
+    
     
     func getVerse() async {
         let endpoint = "https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/en-kjv/books/john/chapters/3/verses/16.json"
@@ -63,36 +63,37 @@ final class Main {
     
     func getWords()  -> [Word] {
         
-            if (verseText.prefix(2) == "¶ ") {
-                let fixedVerse = verseText.dropFirst(2)
-                verseText = String(fixedVerse)
-                words = fixedVerse.components(separatedBy: " ")
-            } else if (verseText.prefix(1) == " ")  {
-                let fixedVerse = verseText.dropFirst()
-                verseText = String(fixedVerse)
-                words = fixedVerse.components(separatedBy: " ")
-            } else {
-                words = verseText.components(separatedBy: " ")
+        if (verseText.prefix(2) == "¶ ") {
+            let fixedVerse = verseText.dropFirst(2)
+            verseText = String(fixedVerse)
+            words = fixedVerse.components(separatedBy: " ")
+        } else if (verseText.prefix(1) == " ")  {
+            let fixedVerse = verseText.dropFirst()
+            verseText = String(fixedVerse)
+            words = fixedVerse.components(separatedBy: " ")
+        } else {
+            words = verseText.components(separatedBy: " ")
+        }
+        words.reverse()
+        
+        wordList.removeAll()
+        
+        for _ in 1...numVerses {
+            for wrdIndex in 0..<words.count {
+                wordList.append(Word(id: 1, word: words[wrdIndex], xPosition: CGFloat.random(in: 50..<330), yPosition: CGFloat.random(in: 40..<300), rotation: Double.random(in: -40.0...40.0), isInvisible: false))
             }
-            words.reverse()
-            
-            wordList.removeAll()
-            
-            for _ in 1...numVerses {
-                for wrdIndex in 0..<words.count {
-                    wordList.append(Word(id: 1, word: words[wrdIndex], xPosition: CGFloat.random(in: 50..<330), yPosition: CGFloat.random(in: 40..<300), rotation: Double.random(in: -40.0...40.0), isInvisible: false))
-                }
-            }
-
-            for index in 0..<(wordList.count) {
-                wordList[index] = Word(id: index, word: wordList[index].word, xPosition: wordList[index].xPosition, yPosition: wordList[index].yPosition, rotation: wordList[index].rotation)
-            }
-            
-            wordCounter = wordList.count - 1
-            displayWords = true
-            
-
+        }
+        
+        for index in 0..<(wordList.count) {
+            wordList[index] = Word(id: index, word: wordList[index].word, xPosition: wordList[index].xPosition, yPosition: wordList[index].yPosition, rotation: wordList[index].rotation)
+        }
+        
+        wordCounter = wordList.count - 1
+        displayWords = true
+        
+        
         return wordList
         
     } // end func getWords()
     
+}
