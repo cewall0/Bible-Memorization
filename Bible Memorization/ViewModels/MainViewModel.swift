@@ -36,54 +36,33 @@ final class Main {
         case invalidData
     }
     
-    init() {
-//        self.verse = verse
-        self.verseText = verseText
-        self.word = word
-        self.text = text
-        self.fixedVerse = fixedVerse
-        self.book = book
-        self.chapter = chapter
-        self.verseNum = verseNum
-        self.displayWords = displayWords
-        self.words = words
-        self.wordList = wordList
-        self.wordCounter = wordCounter
-        self.isInvisible = isInvisible
-        self.vrs = vrs
-        self.wordID = wordID
-    }
+
     
-    func getVerse() async throws -> Verse {
+    func getVerse() async {
         let endpoint = "https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/en-kjv/books/john/chapters/3/verses/16.json"
         
         guard let url = URL(string: endpoint) else {
-            throw catchErrors.invalidURL
+            print("Error with returning url from: \(endpoint)")
+            return
         }
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw catchErrors.invalidResponse
-        }
-
         do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(Verse.self, from: data)
-            
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let returned = try? JSONDecoder().decode(Verse.self, from: data) else {
+                print("JSON Error: could not decode returned data.")
+                return
+            }
+            self.verseText = returned.text
+            self.wordList = getWords()
         } catch {
-            throw catchErrors.invalidData
+            print("Error: Could not use URL to get data and response")
         }
+        
+        
         
     } // end func getVerse
     
-    func getWords() async throws -> [Word] {
-        do{
-            try await verseText = getVerse().text
-        } catch {
-            throw catchErrors.invalidData
-        }
-//        if verseText != "Blank" {
-//            
+    func getWords()  -> [Word] {
+        
             if (verseText.prefix(2) == "¶ ") {
                 let fixedVerse = verseText.dropFirst(2)
                 verseText = String(fixedVerse)
@@ -112,27 +91,8 @@ final class Main {
             wordCounter = wordList.count - 1
             displayWords = true
             
-//        } else {
-//            
-//            wordList[0] = Word(id: 0, word: "error", xPosition: 0.0, yPosition: 0.0, rotation: 0.0, isInvisible: false)
-//        }
+
         return wordList
         
     } // end func getWords()
     
-//    func getData() async {
-//        wordList = (try? await getWords()) ?? []
-//    }
-       
-//    func checkButton(buttonID: Int) -> Bool {
-//           isInvisible = false
-//        if buttonID == wordCounter {
-//            wordCounter -= 1
-//            return true
-//        } else {
-//            return false
-//        }
-//       }
-       
-    
-}

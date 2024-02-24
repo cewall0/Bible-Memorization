@@ -11,7 +11,6 @@ import Observation
 struct MainView: View {
     
     @Bindable var main = Main()
-//    @State private var verseState: Verse?
     @State private var buttonID: Int = 0
     @State private var toDelete: Int = 0
     
@@ -39,26 +38,7 @@ struct MainView: View {
                 .padding()
             Text("")
             
-//            Text(verseState?.text ?? "verseState empty")
-//                .multilineTextAlignment(.leading)
-//                .font(.headline)
-//                .padding()
-//            Text("")
-            
-//            if main.displayWords == true {
-//                Text(String(main.wordCounter))
-//                    .multilineTextAlignment(.leading)
-//                    .font(.headline)
-//                    .padding()
-//            }
-//            Text("")
-//            if main.displayWords == true {
-//                Text(String(buttonID))
-//                    .multilineTextAlignment(.leading)
-//                    .font(.headline)
-//                    .padding()
-//            }
-            
+
             
             Text("")
         
@@ -92,21 +72,7 @@ struct MainView: View {
             
         } // end VSTack
         .task {
-            do {
-                
-//                verseState = try await main.getWords().
-//            main.verseText = verseState?.text ?? "default value verseZero"
-            main.wordList = try await main.getWords()
-                
-            } catch catchErrors.invalidURL {
-                print("invalid URL")
-            } catch catchErrors.invalidResponse {
-                print("invalid response")
-            } catch catchErrors.invalidData {
-                print("invalid data")
-            } catch {
-                print("unexpected error")
-            }
+            await main.getVerse()
         } // end task
     
     }// end View Body
@@ -116,23 +82,4 @@ struct MainView: View {
     #Preview {
         MainView()
     }
-    
-    
 
-
-
-
-//if (verse.text.prefix(2) == "¶ ") {
-//    let fixedVerse = verse.text.dropFirst(2)
-//    verse.text = String(fixedVerse)
-//    words = fixedVerse.components(separatedBy: " ")
-//} else if (verse.text.prefix(1) == " ")  {
-//    let fixedVerse = verse.text.dropFirst()
-//    verse.text = String(fixedVerse)
-//    words = fixedVerse.components(separatedBy: " ")
-//} else {
-//    words = verse.text.components(separatedBy: " ")
-//}
-//words.reverse()
-//
-//displayWords = true
