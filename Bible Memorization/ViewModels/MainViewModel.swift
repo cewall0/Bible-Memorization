@@ -13,8 +13,6 @@ import Observation
 final class Main {
     
     var verseText: String = "blank"
-//    var word: Word = Word()
-//    var text: String = ""
     var fixedVerse: String = ""
     var book: String = "John"
     var chapter: String = "3"
@@ -28,6 +26,7 @@ final class Main {
     let numVerses = 5
     var toDelete = 0
     var wordID = 0
+    var allClicked = false
     
     
     enum catchErrors: Error {
@@ -113,5 +112,12 @@ final class Main {
                 return .white
             }
         }
+    
+    func checkAllClicked() {
+        if wordCounter == 0 {
+            allClicked = true
+        }
+    }
+    
     }
 

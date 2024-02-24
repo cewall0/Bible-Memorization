@@ -42,6 +42,8 @@ struct MainView: View {
             
             Text("")
         
+            if main.allClicked == false {
+
                 ZStack{
                     if main.displayWords == true {
                     
@@ -50,6 +52,7 @@ struct MainView: View {
                                 if word.id == main.wordCounter {
                                    main.wordList[word.id].isInvisible = true
                                     main.wordCounter -= 1
+                                    main.checkAllClicked()
                                 } else {
                                     main.wordList[word.id].isInvisible = false
                                 }
@@ -67,6 +70,21 @@ struct MainView: View {
                         } // end ForEach
                     } // end if
                 } // end ZStack
+            } else {// end if
+                VStack{
+                    Text("Well Done!")
+                        .font(.title)
+                        .foregroundColor(.blue)
+                    
+                    // reset the clicking game.
+                    Button {
+                        main.allClicked = false
+                    } label: {
+                        Text("Go again?")
+                    }.buttonStyle(.borderedProminent)
+
+                }
+            }
             
             Spacer()
             
